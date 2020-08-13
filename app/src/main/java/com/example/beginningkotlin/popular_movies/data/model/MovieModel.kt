@@ -1,4 +1,5 @@
 package com.example.beginningkotlin.popular_movies.data.model
+import com.example.beginningkotlin.constants.NetworkConstants
 import com.google.gson.annotations.SerializedName
 
 
@@ -19,4 +20,9 @@ data class MovieModel(
     val voteAverage: Double,
     @SerializedName("id")
     val id: Int
-)
+
+) {
+    fun getFullImageURL() : String {
+        return NetworkConstants.POSTERS_BASE_URL + posterPath
+    }
+}

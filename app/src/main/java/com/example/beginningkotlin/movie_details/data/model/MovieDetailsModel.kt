@@ -1,5 +1,7 @@
 package com.example.beginningkotlin.movie_details.data.model
+import com.example.beginningkotlin.constants.NetworkConstants
 import com.google.gson.annotations.SerializedName
+import retrofit2.http.GET
 
 
 data class MovieDetailsModel(
@@ -25,4 +27,10 @@ data class MovieDetailsModel(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+
+) {
+    fun getFullImageURL() : String {
+        return NetworkConstants.POSTERS_BASE_URL + posterPath
+    }
+}
+

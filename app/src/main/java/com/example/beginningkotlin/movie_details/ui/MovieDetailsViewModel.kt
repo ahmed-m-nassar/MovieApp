@@ -2,14 +2,16 @@ package com.example.beginningkotlin.movie_details.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.beginningkotlin.Constants
+import com.example.beginningkotlin.base.RetrofitBuilder
+import com.example.beginningkotlin.constants.NetworkConstants
 import com.example.beginningkotlin.movie_details.data.api.MovieDetailsApi
 import com.example.beginningkotlin.movie_details.data.model.MovieDetailsModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 
 class MovieDetailsViewModel : ViewModel() {
     val movieDetails : MutableLiveData<MovieDetailsModel> = MutableLiveData()
@@ -24,30 +26,27 @@ class MovieDetailsViewModel : ViewModel() {
         //start loading
         isLoading.value = true
 
-        val retrofit : Retrofit = Retrofit.Builder().baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()).build()
+        val api = RetrofitBuilder.retrofitBuilder.build().create(MovieDetailsApi::class.java)
 
-        val  jsonPlaceHolder : MovieDetailsApi = retrofit.create(MovieDetailsApi::class.java)
-
-        val call : Call<MovieDetailsModel> = jsonPlaceHolder.getMovieDetails(  movieID,Constants.API_KEY_VALUE )
-
-        call.enqueue(object : Callback<MovieDetailsModel> {
-            override fun onResponse(call: Call<MovieDetailsModel>, response: Response<MovieDetailsModel>) {
-                isLoading.value = false
-                if (response.isSuccessful){
-                    movieDetails.setValue(response.body())
-                } else {
-                    val statusCode  = response.code();
-                    message.value = "Error with code " + statusCode
+        GlobalScope
+            .launch(Dispatchers.IO) {
+                try {
+                    val response = api.getMovieDetails(movieID,
+                        NetworkConstants.API_KEY_VALUE)
+                    if(response.isSuccessful) {
+                        isLoading.postValue(false)
+                        movieDetails.postValue(response.body())
+                    } else {
+                        isLoading.postValue(false)
+                        message.postValue(response.message() + " Error code = " + response.code())
+                    }
+                } catch(exception : Exception) {
+                    message.postValue(exception.message)
+                    isLoading.postValue(false)
                 }
 
             }
-            override fun onFailure(call: Call<MovieDetailsModel>, t: Throwable) {
 
-                isLoading.value = false
-                message.value = t.message
-            }
-        })
     }
 
 }

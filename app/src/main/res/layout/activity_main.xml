@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".popular_movies.ui.MoviesListActivity">
+    tools:context=".popular_movies.ui.PopularMoviesListActivity">
 
     <ProgressBar
         android:id="@+id/main_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="center_vertical"></ProgressBar>
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"></ProgressBar>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
