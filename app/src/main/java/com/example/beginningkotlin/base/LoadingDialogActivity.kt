@@ -3,9 +3,10 @@ package com.example.beginningkotlin.base
 import android.app.Activity
 import android.app.AlertDialog
 import android.view.LayoutInflater
+import androidx.fragment.app.FragmentActivity
 import com.example.beginningkotlin.R
 
-class LoadingDialog(val activity : Activity ) {
+class LoadingDialogActivity(val activity: Activity) {
     private var alertDialog : AlertDialog? = null
 
     fun startLoadingAnimation() {

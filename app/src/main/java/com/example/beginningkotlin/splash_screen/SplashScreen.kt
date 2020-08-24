@@ -17,10 +17,8 @@ class SplashScreen : BaseActivity<SplashScreenViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel.startSplashing()
-
-
-
         viewModel.isSplashing.observe(this, Observer { isSplashing ->
             if(!isSplashing) {
                 val intent : Intent = Intent(this , PopularMoviesListActivity::class.java)

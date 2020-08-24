@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.beginningkotlin.R
 import com.example.beginningkotlin.popular_movies.data.model.MovieModel
+import com.example.beginningkotlin.popular_movies.data.model.ui_model.PopularMoviesUIModel
 
-class PopularMoviesListAdapter(val context : Context, var moviesList : List<MovieModel>,
+class PopularMoviesListAdapter(val context : Context, var moviesList : List<PopularMoviesUIModel>,
                                val onMovieListener : OnMovieListener) : RecyclerView.Adapter<PopularMoviesListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,10 +29,10 @@ class PopularMoviesListAdapter(val context : Context, var moviesList : List<Movi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.title?.text = moviesList[position].originalTitle
+        holder?.title?.text = moviesList[position].movieTitle
         holder?.releaseDate?.text = moviesList[position].releaseDate
 
-        val posterURL : String = moviesList[position].getFullImageURL()
+        val posterURL : String = moviesList[position].posterURL
         Glide.with(context)
             .load(posterURL)
             .centerCrop()

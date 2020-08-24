@@ -1,5 +1,6 @@
 package com.example.beginningkotlin.popular_movies.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.beginningkotlin.base.BaseRepository
@@ -28,8 +29,9 @@ class MovieDetailsRepository : BaseRepository() {
                      val movieDetails : LiveData<MovieDetailsModel> = MutableLiveData(response.body())
                      resource = Resource(Resource.Status.SUCCESS,movieDetails,null)
                  } else {
-                     Resource(Resource.Status.ERROR,null
+                     resource = Resource(Resource.Status.ERROR,null
                          ,response.message() + " Error code = " + response.code())
+                     Log.d("urllll",response.raw().request().url().toString())
                  }
 
              } catch(exception : Exception) {

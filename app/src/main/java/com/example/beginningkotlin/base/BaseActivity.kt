@@ -1,16 +1,11 @@
 package com.example.beginningkotlin.base
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.*
-import com.example.beginningkotlin.R
-import com.example.beginningkotlin.movie_details.ui.MovieDetailsViewModel
-import kotlinx.android.synthetic.main.activity_movie_details.*
-import com.example.beginningkotlin.base.BaseViewModel
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 
 abstract class BaseActivity<T : BaseViewModel<*>> : AppCompatActivity() {
     lateinit var viewModel: T
@@ -22,14 +17,14 @@ abstract class BaseActivity<T : BaseViewModel<*>> : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(getViewModelType()::class.java)
 
 
-        val loadingDialog = LoadingDialog(this)
+        val loadingDialog = LoadingDialogActivity(this)
         viewModel.isLoading.observe(this, Observer {
             if (it) {
-                Log.d("BaseActivity" , "I am loading")
+                Log.d("BaseActivity", "I am loading")
                 loadingDialog.startLoadingAnimation()
 
             } else {
-                Log.d("BaseActivity" , "Stopped loading")
+                Log.d("BaseActivity", "Stopped loading")
                 loadingDialog.dismissLoadingAnimation()
             }
         })
@@ -38,8 +33,9 @@ abstract class BaseActivity<T : BaseViewModel<*>> : AppCompatActivity() {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
 
-        viewModel.repository.errorMessage.observe(this , Observer {
+        viewModel.repository.errorMessage.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            loadingDialog.dismissLoadingAnimation()
         })
 
 
