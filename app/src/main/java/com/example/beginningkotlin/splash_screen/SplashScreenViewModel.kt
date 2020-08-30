@@ -1,12 +1,9 @@
 package com.example.beginningkotlin.splash_screen
 
-import android.content.Intent
 import android.os.Handler
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.beginningkotlin.base.BaseViewModel
-import com.example.beginningkotlin.popular_movies.ui.PopularMoviesListActivity
-import com.example.beginningkotlin.splash_screen.data.repository.SplashScreenRepository
+import com.example.beginningkotlin.data.repository.SplashScreenRepository
 
 class SplashScreenViewModel : BaseViewModel<SplashScreenRepository>() {
 

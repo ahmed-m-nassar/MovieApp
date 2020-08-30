@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.example.beginningkotlin.popular_movies.model.PopularMoviesUIModel" />
+    </data>
 <androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/movie_list_item_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background">
+            app:imageURL= "@{item.posterURL}">
 
         </ImageView>
 
@@ -36,7 +43,7 @@
             android:layout_marginStart="4dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="avengers end game"
+            android:text="@{item.movieTitle}"
             android:textSize="12sp"
             android:maxLines="1"
             android:ellipsize="end"
@@ -50,7 +57,7 @@
             android:layout_marginBottom="4dp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="2019"
+            android:text="@{item.releaseDate}"
             android:maxLength="4"
             android:textSize="12sp"
             android:layout_marginLeft="4dp" />
@@ -58,3 +65,4 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+</layout>

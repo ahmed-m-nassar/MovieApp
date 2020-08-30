@@ -21,9 +21,10 @@
         android:name="com.example.beginningkotlin.movie_details.ui.MovieDetailsFragment"
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details" >
-        <argument android:name="MovieID"
+        <argument
+            android:name="MovieID"
             android:defaultValue="1"
-            app:argType="string"></argument>
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/popularMoviesFragment"

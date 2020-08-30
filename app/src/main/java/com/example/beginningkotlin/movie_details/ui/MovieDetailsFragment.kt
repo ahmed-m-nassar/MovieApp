@@ -1,54 +1,56 @@
 package com.example.beginningkotlin.movie_details.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 
 import com.example.beginningkotlin.R
 import com.example.beginningkotlin.base.BaseFragment
 import com.example.beginningkotlin.constants.NetworkConstants
-import kotlinx.android.synthetic.main.activity_movie_details.*
+import com.example.beginningkotlin.databinding.RateDialogBinding
+import com.example.beginningkotlin.databinding.FragmentMovieDetailsBinding
+import com.example.beginningkotlin.dialog.BaseDialog
 
 
-class MovieDetailsFragment :  BaseFragment<MovieDetailsViewModel>() {
+class MovieDetailsFragment : BaseFragment<MovieDetailsViewModel>() {
+    var binding: FragmentMovieDetailsBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_details, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_movie_details,
+            container, false
+        )
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding?.viewModel = viewModel
         val movieID: String? = requireArguments().getString(NetworkConstants.MOVIE_ID_KEY)
         viewModel.getMovieDetails(movieID!!.toInt())
         viewModel.movieDetails?.observe(viewLifecycleOwner, Observer { movieDetails ->
-            Glide.with(this)
-                .load(movieDetails.posterURL)
-                .centerCrop()
-                .into(movie_details_movie_poster!!)
-
-            movie_details_title?.setText(movieDetails.movieTitle)
-            movie_details_rating?.setText(movieDetails.rate)
-            movie_details_budget?.setText(movieDetails.budget)
-            movie_details_release_date?.setText(movieDetails.releaseDate)
+            binding?.movieDetails = movieDetails
         })
-    }
 
-
-    override fun getLayoutResourseId(): Int {
-        return R.layout.activity_movie_details
+        binding?.movieDetailsRateButton?.setOnClickListener {
+            val rateDialog : BaseDialog = BaseDialog(requireContext() , R.layout.rate_dialog)
+            val view = rateDialog.startAnimation()
+            var rateBinding: RateDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(context), R.layout.rate_dialog,
+            null, false
+            )
+            rateBinding.viewModel = viewModel
+            rateBinding.ratingDialogSubmitButton.setOnClickListener {
+                viewModel.rateMovie(movieID.toInt())
+            }
+        }
     }
 
     override fun getViewModelType(): MovieDetailsViewModel {

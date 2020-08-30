@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+        <data>
+            <variable
+                name = "viewModel"
+                type = "com.example.beginningkotlin.popular_movies.ui.PopularMoviesListViewModel" />
+            <variable
+                name = "adapter"
+                type = "com.example.beginningkotlin.popular_movies.adapter.PopularMoviesListAdapter" />
+        </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".popular_movies.ui.PopularMoviesFragment">
@@ -11,6 +22,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popular_movies_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="1" />
     </LinearLayout>
-
+</layout>
