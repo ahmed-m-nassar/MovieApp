@@ -3,7 +3,7 @@ package com.example.beginningkotlin.data.api
 import com.example.beginningkotlin.constants.NetworkConstants
 import com.example.beginningkotlin.data.response_model.MovieDetailsResponseModel
 import com.example.beginningkotlin.data.response_model.PopularMovieResponseModel
-import com.example.beginningkotlin.movie_details.model.RatingBody
+import com.example.beginningkotlin.ui.movie_details.model.RatingBody
 import com.example.beginningkotlin.data.response_model.RatingResponseModel
 import retrofit2.Response
 import retrofit2.http.*

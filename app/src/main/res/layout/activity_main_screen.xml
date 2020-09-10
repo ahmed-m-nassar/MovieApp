@@ -8,13 +8,13 @@
     <data>
         <variable
             name = "viewModel"
-            type = "com.example.beginningkotlin.main.ui.MainScreenViewModel" />
+            type = "com.example.beginningkotlin.ui.main.ui.MainScreenViewModel" />
 
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ui.MainScreenActivity">
+    tools:context=".ui.main.ui.MainScreenActivity">
 
     <fragment
         android:id="@+id/containerNavHos"

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "76941716821",
+    "firebase_url": "https://ratethemovie-91d24.firebaseio.com",
+    "project_id": "ratethemovie-91d24",
+    "storage_bucket": "ratethemovie-91d24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76941716821:android:eeb4bcf12b8a80eac453dc",
+        "android_client_info": {
+          "package_name": "com.example.beginningkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76941716821-3ov3j9cbqk577cfuajilrqqd0fseud0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beginningkotlin",
+            "certificate_hash": "db758b7172d299aa4764902d0cb67e677dbfee97"
+          }
+        },
+        {
+          "client_id": "76941716821-235uuuk5nss5n83oq43hn4bkotq72s6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEvzg1L5c9EkwTL0LaPPIiEOcJKpiA778"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76941716821-235uuuk5nss5n83oq43hn4bkotq72s6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

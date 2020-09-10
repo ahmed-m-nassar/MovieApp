@@ -7,25 +7,36 @@
         <data>
             <variable
                 name = "viewModel"
-                type = "com.example.beginningkotlin.popular_movies.ui.PopularMoviesListViewModel" />
+                type = "com.example.beginningkotlin.ui.popular_movies.ui.PopularMoviesListViewModel" />
             <variable
                 name = "adapter"
-                type = "com.example.beginningkotlin.popular_movies.adapter.PopularMoviesListAdapter" />
+                type = "com.example.beginningkotlin.ui.popular_movies.adapter.PopularMoviesListAdapter" />
         </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".popular_movies.ui.PopularMoviesFragment">
+        tools:context=".ui.popular_movies.ui.PopularMoviesFragment">
+
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popular_movies_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/popular_movies_chat_button"
             android:orientation="vertical"
             app:adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="1" />
-    </LinearLayout>
+            app:spanCount="1"/>
+        <Button
+            android:id="@+id/popular_movies_chat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+           />
+    </RelativeLayout>
+
 </layout>

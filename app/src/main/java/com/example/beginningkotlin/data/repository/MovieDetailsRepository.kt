@@ -1,4 +1,4 @@
-package com.example.beginningkotlin.popular_movies.data.repository
+package com.example.beginningkotlin.ui.popular_movies.data.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,7 +9,7 @@ import com.example.beginningkotlin.network.RetrofitBuilder
 import com.example.beginningkotlin.constants.NetworkConstants
 import com.example.beginningkotlin.data.api.MovieAPI
 import com.example.beginningkotlin.data.response_model.MovieDetailsResponseModel
-import com.example.beginningkotlin.movie_details.model.RatingBody
+import com.example.beginningkotlin.ui.movie_details.model.RatingBody
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

@@ -1,6 +1,8 @@
 package com.example.beginningkotlin.utils
 
 import android.widget.Adapter
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,3 +22,4 @@ public fun setImageResource(imageView : ImageView, imageurl : String?) {
 public fun setAdapter(recyclerView: RecyclerView , adapter : RecyclerView.Adapter<*>) {
     recyclerView.adapter = adapter
 }
+

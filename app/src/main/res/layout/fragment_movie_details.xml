@@ -8,17 +8,17 @@
     <data>
         <variable
             name = "movieDetails"
-            type = "com.example.beginningkotlin.movie_details.model.MovieDetailsUIModel" />
+            type = "com.example.beginningkotlin.ui.movie_details.model.MovieDetailsUIModel" />
         <variable
             name = "viewModel"
-            type = "com.example.beginningkotlin.movie_details.ui.MovieDetailsViewModel" />
+            type = "com.example.beginningkotlin.ui.movie_details.ui.MovieDetailsViewModel" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".movie_details.ui.MovieDetailsFragment">
+        tools:context=".ui.movie_details.ui.MovieDetailsFragment">
 
         <LinearLayout
             android:layout_width="match_parent"

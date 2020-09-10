@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.beginningkotlin.popular_movies.model.PopularMoviesUIModel" />
+            type="com.example.beginningkotlin.ui.popular_movies.model.PopularMoviesUIModel" />
     </data>
 <androidx.cardview.widget.CardView
     android:id="@+id/movie_list_item_card_view"

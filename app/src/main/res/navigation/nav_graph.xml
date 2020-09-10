@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.beginningkotlin.splash_screen.SplashScreenFragment"
+        android:name="com.example.beginningkotlin.ui.splash_screen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.example.beginningkotlin.movie_details.ui.MovieDetailsFragment"
+        android:name="com.example.beginningkotlin.ui.movie_details.ui.MovieDetailsFragment"
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details" >
         <argument
@@ -28,11 +28,23 @@
     </fragment>
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="com.example.beginningkotlin.popular_movies.ui.PopularMoviesFragment"
+        android:name="com.example.beginningkotlin.ui.popular_movies.ui.PopularMoviesFragment"
         android:label="fragment_popular_movies"
         tools:layout="@layout/fragment_popular_movies" >
         <action
             android:id="@+id/action_popularMoviesFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.beginningkotlin.ui.chat.ChatFragment"
+        android:label="ChatFragment" >
+        <action
+            android:id="@+id/action_chatFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment"
+            app:popUpTo="@+id/popularMoviesFragment"/>
     </fragment>
 </navigation>

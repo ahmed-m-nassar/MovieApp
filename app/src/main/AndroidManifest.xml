@@ -9,17 +9,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:name=".application.BaseApp"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".main.ui.MainScreenActivity">
+        <activity android:name="com.example.beginningkotlin.ui.main.ui.MainScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".popular_movies.ui.PopularMoviesListActivity" />
-        <activity android:name=".movie_details.ui.MovieDetailsActivity" />
-        <activity android:name=".splash_screen.SplashScreen"></activity>
+        <activity android:name="com.example.beginningkotlin.ui.popular_movies.ui.PopularMoviesListActivity" />
+        <activity android:name="com.example.beginningkotlin.ui.movie_details.ui.MovieDetailsActivity" />
+        <activity android:name="com.example.beginningkotlin.ui.splash_screen.SplashScreen"></activity>
     </application>
 
 </manifest>

@@ -8,12 +8,12 @@
     <data>
         <variable
             name = "viewModel"
-            type = "com.example.beginningkotlin.splash_screen.SplashScreenViewModel" />
+            type = "com.example.beginningkotlin.ui.splash_screen.SplashScreenViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".splash_screen.SplashScreenFragment">
+        tools:context=".ui.splash_screen.SplashScreenFragment">
 
         <ImageView
             android:id="@+id/imageView2"

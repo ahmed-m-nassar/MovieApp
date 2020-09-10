@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import com.example.beginningkotlin.movie_details.ui.MovieDetailsFragment
 
 class BaseDialog(val context: Context, val layoutID: Int) {
     private var alertDialog : AlertDialog? = null
